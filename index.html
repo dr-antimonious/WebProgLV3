@@ -1,26 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Web Shop</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Webstore</title>
   </head>
   <body>
-    <h1>Web Shop</h1>
-    <div class="cart-container">
+    <header class="header">
+      <img class="logo" src="Assets/Logo.png"  alt="Logo"/>
+      <nav class="navbar">
+        <a class="selected" href="#">Home</a>
+        <a href="#store">Store</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="cart-container">
         <button class="cart-button">Cart <span class="cart-badge">0</span></button>
+      </div>
+    </header>
+
+    <div class="page splash-bg col-container">
+      <h1 style="font-size: 10em; color: white">Welcome</h1>
+      <h2 style="font-size: 4em; color: white">to the fruit market</h2>
     </div>
 
-    <div class="items-grid">
+    <div class="row-container dropdownContainer">
+      <label for="sort">Sort by:</label>
+      <select name="sort" id="sort" onchange="sort(event)">
+        <option value="">Select...</option>
+        <option value="cheap">Price (cheapest first)</option>
+        <option value="expensive">Price (most expensive first)</option>
+        <option value="alpha">Alphabetically (A to Z)</option>
+        <option value="beta">Alphabetically (Z to A)</option>
+      </select>
+    </div>
+
+    <div class="page items-grid" id="store">
+    </div>
+
+    <div class="blue-bg" style="margin: 2vh 0">
+      <div class="footer" id="about">
+        <img loading="lazy" class="logo" src="Assets/Logo.png"  alt="Logo"/>
+        <nav class="navbar">
+          <a class="selected" href="#">Home</a>
+          <a href="#store">Store</a>
+          <a href="#about">About</a>
+        </nav>
+        <div style="justify-content: center">
+          <a href="#about" style="text-decoration: none">
+            <img class="inline-icon-sm" loading="lazy" src="Assets/Facebook.png" alt="Facebook"/>
+          </a>
+          <a href="#about" style="text-decoration: none">
+            <img class="inline-icon-sm" loading="lazy" src="Assets/Instagram.png" alt="Instagram"/>
+          </a>
+          <a href="#about" style="text-decoration: none">
+            <img class="inline-icon-sm" loading="lazy" src="Assets/Twitter.png" alt="Twitter"/>
+          </a>
+          <a href="#about" style="text-decoration: none">
+            <img class="inline-icon-sm" loading="lazy" src="Assets/Linkedin.png" alt="Linkedin"/>
+          </a>
+        </div>
+      </div>
+      <hr class="solid" style="margin: 1vh 2vw">
+      <div class="footer">
+        <p>
+          Made by <a style="text-decoration: none" href="https://github.com/dr-antimonious">antimonious</a>
+        </p>
+        <div id="footerLinks">
+          <a href="#about" style="text-decoration: none; margin: 0 1vw">
+            Privacy policy
+          </a>
+          <a href="#about" style="text-decoration: none; margin: 0 1vw">
+            Terms of service
+          </a>
+          <a href="https://en.wikipedia.org/wiki/HTTP_cookie" style="text-decoration: none; margin: 0 1vw">
+            Cookie settings
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
+      <div id="cartModal" class="modal-content" style="position: absolute; left: 30vw; width: max-content">
+        <span id="cart" class="close">&times;</span>
         <h2>Cart</h2>
-        <ul class="cart-items"></ul>
+        <div class="col-container cart-items"></div>
         <p>Total: <span class="cart-total">$0.00</span></p>
         <button class="buy-btn">Buy</button>
+      </div>
+
+      <div id="goodModal" class="modal-content" style="visibility: hidden; position: absolute; left: 45vw; width: max-content">
+        <span id="good" class="close">&times;</span>
+        <h2 style="color: green">Thank you for buying from us!</h2>
+      </div>
+
+      <div id="badModal" class="modal-content" style="visibility: hidden; position: absolute; left: 45vw; width: max-content">
+        <span id="bad" class="close">&times;</span>
+        <h2 style="color: red">Your cart is empty.</h2>
       </div>
     </div>
     <script src="script.js"></script>

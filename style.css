@@ -1,19 +1,191 @@
-/* CSS variables */
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --font-size-base: 16px;
-    --font-family-base: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+::-webkit-scrollbar {
+    display: none;
 }
 
-/* Global styles */
-body {
-    font-size: var(--font-size-base);
-    font-family: var(--font-family-base);
-    color: #333;
+*, *::before {
+    transition: .5s;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: white;
+}
+
+.blue-bg {
+    background: #F5FCFF;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5vh 3vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 2px 80px 0 #c5b9f9;
+}
+
+.footer {
+    width: 100%;
+    padding: 1.5vh 3vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar a {
+    position: relative;
+    color: black;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.navbar a:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    border: solid white;
+    color: white;
+    padding: 2vh 1.5vw;
+    text-decoration: none;
+    margin: 1vh 0.5vw;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.navbar a, button {
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: white !important;
+    border: dashed var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo {
+    max-width: 15vw;
+    padding: 0 0;
+    margin: 0 0;
+}
+
+.selected {
+    color: var(--primary-color);
+}
+
+.selected::before {
+    background: #282938;
+}
+
+.selected:hover {
+    color: #282938;
+}
+
+.page {
+    min-height: 50vh;
+}
+
+.col-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.splash-bg {
+    min-height: 100vh;
+    background-image: url("Assets/splash.webp");
+    background-color: lightgray;
+    background-blend-mode: darken;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    max-width: 50vw;
+}
+
+.dropdownContainer {
+    max-width: 100vw;
+    padding: 1em 1em;
+    justify-content: center;
+}
+
+select, label {
+    margin: 1em 1em;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0.5rem;
+    border-radius: 10px;
+}
+
+.card-container {
+    padding: 1rem;
+}
+
+.card-dark-shadow {
+    box-shadow: #00000030 0 10px 50px 0;
+}
+
+p {
+    line-height: 1.5;
+}
+
+.inline-icon-sm {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+/* Not mine below */
 
 h1 {
     font-size: 2.5em;
@@ -31,6 +203,7 @@ img {
 }
 
 /* Header styles */
+
 .cart-button {
     background-color: var(--primary-color);
     color: white;
@@ -51,21 +224,11 @@ img {
 }
 
 /* Items grid styles */
+
 .items-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1em;
-    margin-top: 1em;
-}
-
-.item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 1em;
 }
 
 .item h2 {
@@ -89,6 +252,7 @@ img {
 }
 
 /* Modal styles */
+
 .modal {
     display: none;
     position: fixed;
@@ -111,7 +275,7 @@ img {
     margin: 15% auto;
     padding: 1em;
     border: 1px solid #ccc;
-    max-width: 600px;
+    max-width: 50vw;
 }
 
 .close {
@@ -119,22 +283,6 @@ img {
     font-size: 2em;
     font-weight: bold;
     cursor: pointer;
-}
-
-.cart-items {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.cart-items li {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5em;
-}
-
-.cart-items li span {
-    margin-left: 0.5em;
 }
 
 .cart-total {
