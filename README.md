@@ -1,6 +1,8 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=14997013&assignment_repo_type=AssignmentRepo)
 # LV 3 zadatak - HTML DOM i JavaScript u HTML-u
 
+## LINK: [Link](https://dr-antimonious.github.io/WebProgLV3/)
+
 U ovoj vježbi zadatak je nadodati dinamičke fukncionalnosti u web stranicu koristeći znanja JavaScripta i HTML-a iz prethodnih vježbi. U repozitoriju se nalaze datoteke `index.html` i `style.css` u kojima se nalazi osnovni kostur stranice za web trgovinu. U datoteci `script.js` nalazi se početna točka za JavaScript koji ćete pisati. Potrebno je koristiti JavaScript i HTML DOM kako biste ostvarili funkcionalnosti.
 
 ## Kako funkcionira DOM
